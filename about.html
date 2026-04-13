@@ -1,0 +1,94 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function EPortfolio() {
+  const [page, setPage] = useState("home");
+
+  const renderPage = () => {
+    switch (page) {
+      case "home":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-3xl font-bold">Welcome to My e-Portfolio</h1>
+              <p className="mt-2">This website showcases my academic journey, skills, and experiences in computer science.</p>
+            </CardContent>
+          </Card>
+        );
+      case "about":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">About Me</h1>
+              <p className="mt-2">
+                I am a Computer Information Technology major at Minnesota State University, Mankato. I am passionate about technology, problem-solving, and learning how systems and software work. I enjoy building projects and improving my technical skills as I prepare for a career in the tech field.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "honors":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Honors Program</h1>
+              <p className="mt-2">
+                This section highlights my involvement in the Honors Program, including achievements, projects,
+                and academic growth.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "leadership":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Leadership</h1>
+              <p className="mt-2">
+                I demonstrate leadership through group projects, teamwork, and supporting peers in academic settings.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "research":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Research, Scholarly & Creative Activity</h1>
+              <p className="mt-2">
+                I am interested in research involving computer science, problem-solving, and real-world applications of technology.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "intercultural":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Intercultural Engagement</h1>
+              <p className="mt-2">
+                I engage with diverse cultures through my international student experience and collaboration with peers from different backgrounds.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen p-6 space-y-4">
+      <nav className="flex flex-wrap gap-2">
+        <Button onClick={() => setPage("home")}>Home</Button>
+        <Button onClick={() => setPage("about")}>About Me</Button>
+        <Button onClick={() => setPage("honors")}>Honors Program</Button>
+        <Button onClick={() => setPage("leadership")}>Leadership</Button>
+        <Button onClick={() => setPage("research")}>Research</Button>
+        <Button onClick={() => setPage("intercultural")}>Intercultural Engagement</Button>
+      </nav>
+
+      <div>{renderPage()}</div>
+    </div>
+  );
+}

@@ -1,0 +1,100 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function EPortfolio() {
+  const [page, setPage] = useState("home");
+
+  const renderPage = () => {
+    switch (page) {
+      case "home":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-3xl font-bold">Welcome to My e-Portfolio</h1>
+              <p className="mt-2">This website showcases my academic journey, skills, and experiences in computer science.</p>
+            </CardContent>
+          </Card>
+        );
+      case "about":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">About Me</h1>
+              <p className="mt-2">
+                I am a Computer Information Technology major at Minnesota State University, Mankato. I am passionate about technology, problem-solving, and learning how systems and software work. I enjoy building projects and improving my technical skills as I prepare for a career in the tech field.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "honors":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Honors Program</h1>
+              <p className="mt-2">
+                This section highlights my involvement in the Honors Program, including achievements, projects,
+                and academic growth.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "leadership":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Leadership</h1>
+              <p className="mt-2">
+                As a Computer Information Technology major, I plan to build my leadership skills by joining a Registered Student Organization (RSO) and completing a summer internship.
+
+First, I will become an active member in an RSO related to my major. I will attend meetings regularly and participate in activities and discussions. This will help me understand how teams work and how leaders organize and guide a group while improving my communication and teamwork skills.
+
+Second, I plan to get an internship this summer in the computer information technology field. During the internship, I will work on real tasks, collaborate with others, and take responsibility for my work. I will stay active, contribute ideas, and learn from my supervisor.
+
+These experiences are important because they will help me grow as both a team member and a future leader, while preparing me for a professional career where teamwork and leadership are essential.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "research":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Research, Scholarly & Creative Activity</h1>
+              <p className="mt-2">
+                I am interested in research involving computer science, problem-solving, and real-world applications of technology.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      case "intercultural":
+        return (
+          <Card>
+            <CardContent className="p-6">
+              <h1 className="text-2xl font-bold">Intercultural Engagement</h1>
+              <p className="mt-2">
+                I engage with diverse cultures through my international student experience and collaboration with peers from different backgrounds.
+              </p>
+            </CardContent>
+          </Card>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen p-6 space-y-4">
+      <nav className="flex flex-wrap gap-2">
+        <Button onClick={() => setPage("home")}>Home</Button>
+        <Button onClick={() => setPage("about")}>About Me</Button>
+        <Button onClick={() => setPage("honors")}>Honors Program</Button>
+        <Button onClick={() => setPage("leadership")}>Leadership</Button>
+        <Button onClick={() => setPage("research")}>Research</Button>
+        <Button onClick={() => setPage("intercultural")}>Intercultural Engagement</Button>
+      </nav>
+
+      <div>{renderPage()}</div>
+    </div>
+  );
+}
